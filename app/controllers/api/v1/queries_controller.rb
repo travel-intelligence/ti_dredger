@@ -1,5 +1,9 @@
 class Api::V1::QueriesController < ApplicationController
   def create
-    render json: {}, status: 201
+    if params[:query].presence
+      render_api json: {}, status: 201
+    else
+      render_api json: {}, status: 400
+    end
   end
 end
