@@ -58,6 +58,7 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
+    polyglot (0.3.5)
     rack (1.6.0)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -121,9 +122,14 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sqliterate (0.1.0)
+      polyglot (~> 0.3)
+      treetop (~> 1.5)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    treetop (1.5.3)
+      polyglot (~> 0.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicorn (4.8.3)
@@ -141,4 +147,5 @@ DEPENDENCIES
   rails_12factor
   rspec-rails
   spring
+  sqliterate
   unicorn

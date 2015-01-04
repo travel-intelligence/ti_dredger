@@ -8,6 +8,8 @@ gem 'rails-api'
 
 gem 'unicorn'
 
+gem 'sqliterate'
+
 group :production do
   # Heroku platform
   gem 'rails_12factor'
