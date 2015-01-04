@@ -1,14 +1,11 @@
 class Api::V1::QueriesController < ApplicationController
   def create
-    query = params[:query].presence
-    
-    return render_api json: { 'error': 'missing query' }, status: 400 unless query
-
-    query = query.to_s
-
-    ast = SQLiterate::QueryParser.new.parse query
-
-    return render_api json: { 'error': 'invalid query' }, status: 400 unless ast
+    query = params['queries']
+    return invalid_params unless query && query.is_a?(Hash)
+    sql = query['sql']
+    return invalid_params unless sql && sql.is_a?(String)
+    ast = SQLiterate::QueryParser.new.parse sql
+    return invalid_params unless ast
 
     id = SecureRandom.hex(16)
     href = api_v1_query_url(id)
@@ -16,7 +13,7 @@ class Api::V1::QueriesController < ApplicationController
       queries: {
         id: id,
         href: href,
-        sql: query,
+        sql: sql,
         tables: ast.tables
       }
     }

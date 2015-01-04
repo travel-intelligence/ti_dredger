@@ -10,6 +10,10 @@ class ApplicationController < ActionController::API
     render_api json: {}, status: code
   end
 
+  def invalid_params
+    render_error 400
+  end
+
   def exception_handler(exception)
     msg = ["#{exception.class}: #{exception}"] + exception.backtrace.take(5)
     logger.error msg.join("\n")
