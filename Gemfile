@@ -6,6 +6,8 @@ gem 'rails', '4.2.0'
 
 gem 'rails-api'
 
+gem 'unicorn'
+
 group :production do
   # Heroku platform
   gem 'rails_12factor'
