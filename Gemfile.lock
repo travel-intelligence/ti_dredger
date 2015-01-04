@@ -45,6 +45,8 @@ GEM
     hike (1.2.3)
     i18n (0.7.0)
     json (1.8.1)
+    jsonpath (0.5.6)
+      multi_json
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -122,6 +124,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jsonpath
   rails (= 4.2.0)
   rails-api
   rspec-rails

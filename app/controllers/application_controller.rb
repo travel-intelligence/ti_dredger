@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
 
   def render_api(options)
     response.headers['Link'] =
-      "<http://profile.sqlegalize.org>; rel=\"profile\""
+      "<#{api_v1_profile_url}>; rel=\"profile\""
     respond_to do |format|
       format.json { render options }
       format.jsonapi { render options }

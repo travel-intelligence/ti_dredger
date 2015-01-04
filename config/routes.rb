@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :queries, only: [:create]
+      get '/', to: 'entry#index'
+      get '/profile', to: redirect('/profile.txt')
+      resources :queries, only: [:create, :show]
     end
   end
 
