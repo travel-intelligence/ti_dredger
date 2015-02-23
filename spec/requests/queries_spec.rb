@@ -7,7 +7,7 @@ RSpec.describe "Queries API", :type => :request do
     it "creates queries from JSON POST body" do
       rep = { queries: { sql: "select * from t" } }.to_json
       headers = { 'CONTENT_TYPE' => 'application/json' }
-      post api_v1_queries_path, rep, headers
+      post ti_sqlegalize.queries_path, rep, headers
       expect(response).to have_http_status(201)
     end
   end

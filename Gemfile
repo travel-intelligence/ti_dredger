@@ -10,6 +10,8 @@ gem 'unicorn'
 
 gem 'sqliterate'
 
+gem 'ti_sqlegalize', path: '../ti_sqlegalize'
+
 group :production do
   # Heroku platform
   gem 'rails_12factor'

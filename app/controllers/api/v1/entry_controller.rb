@@ -4,7 +4,7 @@ class Api::V1::EntryController < ApplicationController
       api: {
         href: api_v1_url,
         links: {
-          r_new_query: api_v1_queries_url
+          r_new_query: ti_sqlegalize.queries_url
         },
         version: 1
       }
