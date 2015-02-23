@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  mount TiSqlegalize::Engine, at: '/api/v1'
+  mount TiSqlegalize::Engine, at: '/api/v1/sql'
 
   match "*path", to: "errors#routing", via: :all
 end
