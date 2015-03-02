@@ -1,5 +1,14 @@
-PATH
-  remote: ../ti_sqlegalize
+GIT
+  remote: git://github.com/ebastien/ti_rails_debian.git
+  revision: 24080e35af0eb814d93e0815bfcde68d0aa00a0d
+  specs:
+    ti_rails_debian (0.0.1)
+      fpm (~> 1.3.3)
+      rails (~> 4.2.0)
+
+GIT
+  remote: git://github.com/ebastien/ti_sqlegalize.git
+  revision: cdfa40bc143cd302c97748cda36f8bbbb048dc32
   specs:
     ti_sqlegalize (0.0.1)
       rails (~> 4.2.0)
@@ -45,9 +54,25 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    arr-pm (0.0.9)
+      cabin (> 0)
+    backports (3.6.4)
     builder (3.2.2)
+    cabin (0.7.1)
+    childprocess (0.5.5)
+      ffi (~> 1.0, >= 1.0.11)
+    clamp (0.6.4)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    ffi (1.9.6)
+    fpm (1.3.3)
+      arr-pm (~> 0.0.9)
+      backports (>= 2.6.2)
+      cabin (>= 0.6.0)
+      childprocess
+      clamp (~> 0.6)
+      ffi
+      json (>= 1.7.7)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -67,6 +92,8 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     polyglot (0.3.5)
+    puma (2.11.1)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -150,11 +177,13 @@ PLATFORMS
 
 DEPENDENCIES
   jsonpath
+  puma
   rails (= 4.2.0)
   rails-api
   rails_12factor
   rspec-rails
   spring
   sqliterate
+  ti_rails_debian!
   ti_sqlegalize!
   unicorn

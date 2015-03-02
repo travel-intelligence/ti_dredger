@@ -1,0 +1,4 @@
+threads 1,1
+workers 1
+environment "production"
+bind "unix://tmp/sockets/puma.sock"
