@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/ebastien/ti_devise_auth.git
+  revision: 3f8ed90f826e41a6108ec9f0b7c7ebe51136924a
+  specs:
+    ti_devise_auth (0.0.1)
+      multi_json
+      rails
+      warden
+
+GIT
   remote: git://github.com/ebastien/ti_rails_debian.git
   revision: 24080e35af0eb814d93e0815bfcde68d0aa00a0d
   specs:
@@ -8,12 +17,13 @@ GIT
 
 GIT
   remote: git://github.com/ebastien/ti_sqlegalize.git
-  revision: cdfa40bc143cd302c97748cda36f8bbbb048dc32
+  revision: 0caa7c5edd3196b80130f177c79d445d6965a954
   specs:
     ti_sqlegalize (0.0.1)
       rails (~> 4.2.0)
       rails-api (~> 0.3.1)
       sqliterate
+      ti_devise_auth
 
 GEM
   remote: https://rubygems.org/
@@ -64,6 +74,7 @@ GEM
     clamp (0.6.4)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    fabrication (2.12.2)
     ffi (1.9.6)
     fpm (1.3.3)
       arr-pm (~> 0.0.9)
@@ -171,11 +182,14 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  fabrication
   jsonpath
   puma
   rails (= 4.2.0)
@@ -184,6 +198,7 @@ DEPENDENCIES
   rspec-rails
   spring
   sqliterate
+  ti_devise_auth!
   ti_rails_debian!
   ti_sqlegalize!
   unicorn
