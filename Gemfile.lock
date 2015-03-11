@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/ebastien/ti_rails_auth.git
+  remote: http://github.com/ebastien/ti_rails_auth
   revision: 897241408d4cd9f3b9fdb35ddd43233402a3e6f2
   specs:
     ti_rails_auth (0.0.1)
@@ -8,15 +8,15 @@ GIT
       warden
 
 GIT
-  remote: git://github.com/ebastien/ti_rails_debian.git
-  revision: 24080e35af0eb814d93e0815bfcde68d0aa00a0d
+  remote: http://github.com/ebastien/ti_rails_debian
+  revision: e5720db99c6a984a7b4146bc2820f71c915a683a
   specs:
     ti_rails_debian (0.0.1)
       fpm (~> 1.3.3)
       rails (~> 4.2.0)
 
 GIT
-  remote: git://github.com/ebastien/ti_sqlegalize.git
+  remote: http://github.com/ebastien/ti_sqlegalize
   revision: 5150d27243dcf619fb5c62c00c7e861b899bd66e
   specs:
     ti_sqlegalize (0.0.1)
@@ -128,7 +128,7 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.0.1)
+    rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
