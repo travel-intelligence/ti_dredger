@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-    namespace :v1 do
-      get '/', to: 'entry#index'
-      get '/profile', to: redirect('/profile.txt')
-    end
-  end
+  scope '/ti-sql/api/metal/v1' do
 
-  mount TiSqlegalize::Engine, at: '/api/v1/sql'
+    scope module: 'api/v1' do
+      get '/', to: 'entry#index', as: :api_v1
+      get '/profile', to: redirect('/profile.txt'), as: :api_v1_profile
+    end
+
+    mount TiSqlegalize::Engine, at: 'sql'
+
+  end
 
   match "*path", to: "errors#routing", via: :all
 end
