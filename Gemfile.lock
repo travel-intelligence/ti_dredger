@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/ebastien/ti_rails_auth
-  revision: 897241408d4cd9f3b9fdb35ddd43233402a3e6f2
+  revision: e9225d8b1e119d179445dac00be4632fc93ae287
   specs:
     ti_rails_auth (0.0.1)
       multi_json
@@ -173,7 +173,7 @@ GEM
       polyglot (~> 0.3)
       treetop (~> 1.5)
     thor (0.19.1)
-    thread_safe (0.3.4)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     treetop (1.5.3)
       polyglot (~> 0.3)
