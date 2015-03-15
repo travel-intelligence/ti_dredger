@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_rails_debian
-  revision: 6062805b4d94c9fc751d3d5d920ee32426b3844a
+  revision: 0ffccc177bedd9cc03d96110669daaac173620f4
   specs:
     ti_rails_debian (0.0.1)
       fpm (~> 1.3.3)
@@ -78,7 +78,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.7)
     fabrication (2.12.2)
-    ffi (1.9.7)
+    ffi (1.9.8)
     fpm (1.3.3)
       arr-pm (~> 0.0.9)
       backports (>= 2.6.2)
