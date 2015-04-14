@@ -1,7 +1,7 @@
 ---
 name: ti-dredger
-version: 0.0.6
-iteration: 2
+version: 0.0.7
+iteration: 1
 arch: amd64
 description: Travel Intelligence SQL web services.
 dependencies:
