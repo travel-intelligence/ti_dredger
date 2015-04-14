@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope '/ti-sql/api/metal/v1' do
+  scope Rails.configuration.x.root_path do
 
     scope module: 'api/v1' do
       get '/', to: 'entry#index', as: :api_v1
