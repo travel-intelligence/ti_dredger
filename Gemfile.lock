@@ -1,9 +1,8 @@
 GIT
   remote: http://github.com/ebastien/ti_rails_auth
-  revision: e9225d8b1e119d179445dac00be4632fc93ae287
+  revision: 710eea68dc8716057b237d9210193ea6a19e9d46
   specs:
-    ti_rails_auth (0.0.1)
-      multi_json
+    ti_rails_auth (0.0.2)
       rails
       warden
 
@@ -17,7 +16,7 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_sqlegalize
-  revision: 35de5e89b2371b2211e732ce3e641ff6b6519b7b
+  revision: 0bbefb44f88e3b71a2ee0a8f41db650ceffc7f79
   specs:
     ti_sqlegalize (0.0.1)
       rails (~> 4.2.0)
@@ -64,7 +63,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    arel (6.0.0)
+    arel (6.0.3)
     arr-pm (0.0.9)
       cabin (> 0)
     backports (3.6.4)
@@ -73,6 +72,7 @@ GEM
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     clamp (0.6.4)
+    concurrent-ruby (1.0.1)
     daemons (1.2.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -87,35 +87,36 @@ GEM
       clamp (~> 0.6)
       ffi
       json (>= 1.7.7)
-    globalid (0.3.3)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
     god (0.13.5)
-    hike (1.2.3)
     i18n (0.7.0)
     impala (0.4.3)
       rack
       thin
       thrift (~> 0.9.1)
-    json (1.8.2)
+    json (1.8.3)
     jsonpath (0.5.6)
       multi_json
     kgio (2.9.3)
-    loofah (2.0.1)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.3)
-      mime-types (>= 1.16, < 3)
-    mime-types (2.4.3)
-    mini_portile (0.6.2)
-    minitest (5.5.1)
+    mail (2.6.4)
+      mime-types (>= 1.16, < 4)
+    mime-types (3.0)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0221)
+    mini_portile2 (2.0.0)
+    minitest (5.8.4)
     mock_redis (0.14.0)
     mono_logger (1.1.0)
-    multi_json (1.11.0)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
+    multi_json (1.11.2)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     polyglot (0.3.5)
     puma (2.11.1)
       rack (>= 1.1, < 2.0)
-    rack (1.6.0)
+    rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -136,11 +137,11 @@ GEM
       railties (>= 3.2.11)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.5)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.0.2)
+    rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
@@ -153,11 +154,11 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
-    rake (10.4.2)
-    redis (3.2.1)
-    redis-namespace (1.5.1)
+    rake (11.1.2)
+    redis (3.3.0)
+    redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
-    resque (1.25.2)
+    resque (1.26.0)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
       redis-namespace (~> 1.3)
@@ -180,20 +181,18 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
-    sinatra (1.4.5)
-      rack (~> 1.4)
+    sinatra (1.4.7)
+      rack (~> 1.5)
       rack-protection (~> 1.4)
-      tilt (~> 1.3, >= 1.3.4)
+      tilt (>= 1.3, < 3)
     spring (1.3.3)
-    sprockets (2.12.3)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
-      rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.4)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      sprockets (>= 2.8, < 4.0)
+    sprockets (3.6.0)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-rails (3.0.4)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
     sqliterate (0.1.4)
       polyglot (~> 0.3)
       treetop (~> 1.5)
@@ -204,8 +203,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     thrift (0.9.2.0)
-    tilt (1.4.1)
-    treetop (1.5.3)
+    tilt (2.0.2)
+    treetop (1.6.5)
       polyglot (~> 0.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -215,7 +214,7 @@ GEM
       raindrops (~> 0.7)
     vegas (0.1.11)
       rack (>= 1.0.0)
-    warden (1.2.3)
+    warden (1.2.6)
       rack (>= 1.0)
 
 PLATFORMS
