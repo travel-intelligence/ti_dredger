@@ -9,8 +9,15 @@ end
 
 module Impala
   class Cursor
+    KNOWN_TYPES = %w(
+      string boolean tinyint smallint int bigint double float decimal timestamp
+    )
+
     def schema
-      metadata.schema.fieldSchemas.map(&:name)
+      metadata.schema.fieldSchemas.map do |f|
+        fail "Unknown type: #{f.type}" unless KNOWN_TYPES.include? f.type
+        [f.name, f.type]
+      end
     end
 
     def parse_row(raw)
