@@ -6,7 +6,7 @@ RSpec.describe "Queries API", :type => :request do
 
   let!(:auth_headers) do
     { 'From' => user.email,
-      'X-Grants' => Base64.encode64({}.to_json) }
+      'X-Grants' => Base64.encode64({ grants: [{}] }.to_json) }
   end
 
   describe "POST /api/v1/queries" do
