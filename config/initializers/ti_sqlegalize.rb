@@ -1,4 +1,8 @@
 require 'impala'
+require 'ti_sqlegalize/zmq_socket'
+require 'ti_sqlegalize/calcite_validator'
+require 'ti_sqlegalize/sqliterate_validator'
+require 'active_support/json'
 
 label = "#{Rails.env}_hadoop"
 config = Rails.configuration.database_configuration[label]
@@ -29,8 +33,31 @@ module Impala
   end
 end
 
-TiSqlegalize.database = if Rails.env == 'test'
+TiSqlegalize.database = if Rails.env.test?
                           -> { TiSqlegalize::DummyDatabase.new }
                         else
                           -> { Impala.connect(config['host'], config['port']) }
                         end
+
+TiSqlegalize.validator = \
+  if Rails.configuration.x.calcite_endpoint && !Rails.env.test?
+    -> do
+      socket = TiSqlegalize::ZMQSocket.new(Rails.configuration.x.calcite_endpoint)
+      TiSqlegalize::CalciteValidator.new(socket)
+    end
+  else
+    -> { TiSqlegalize::SQLiterateValidator.new }
+  end
+
+TiSqlegalize.schemas = \
+  if Rails.configuration.x.schemas_file
+    -> do
+      begin
+        ActiveSupport::JSON.decode File.read(Rails.configuration.x.schemas_file)
+      rescue JSON::ParserError, Errno::ENOENT => e
+        raise "Could not load schemas: #{e}"
+      end
+    end
+  else
+    -> { [] }
+  end

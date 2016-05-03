@@ -16,9 +16,10 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_sqlegalize
-  revision: b88728bd25cf8b675f3a02432913505df39c7cc1
+  revision: 1ddb0d461c5fd08c2c456403ea35b45722d98035
   specs:
     ti_sqlegalize (0.0.1)
+      cztop
       rails (~> 4.2.0)
       rails-api (~> 0.3.1)
       resque
@@ -72,7 +73,11 @@ GEM
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     clamp (0.6.5)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
+    czmq-ffi-gen (0.8.3)
+      ffi (~> 1.9.10)
+    cztop (0.4.0)
+      czmq-ffi-gen (~> 0.8.3)
     daemons (1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -110,7 +115,7 @@ GEM
     minitest (5.8.4)
     mock_redis (0.16.1)
     mono_logger (1.1.0)
-    multi_json (1.11.3)
+    multi_json (1.12.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     polyglot (0.3.5)
