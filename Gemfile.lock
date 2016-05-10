@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_rails_debian
-  revision: 55908b6f9e9b2791e3abcb39865fa0edd8f753b5
+  revision: 47072608689898b611ea566ca6a477cc145ccb48
   specs:
     ti_rails_debian (0.0.1)
       fpm (~> 1.3.3)
