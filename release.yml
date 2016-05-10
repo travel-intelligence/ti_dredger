@@ -5,5 +5,4 @@ iteration: 1
 arch: amd64
 description: Travel Intelligence SQL web services.
 dependencies:
-  - runit
 hooks:
