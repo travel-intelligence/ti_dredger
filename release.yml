@@ -6,3 +6,4 @@ arch: amd64
 description: Travel Intelligence SQL web services.
 dependencies:
 hooks:
+supervisor: systemd
