@@ -49,15 +49,28 @@ TiSqlegalize.validator = \
     -> { TiSqlegalize::SQLiterateValidator.new }
   end
 
+TiSqlegalize.domains = \
+  if Rails.configuration.x.domains_file
+    TiSqlegalize::DomainDirectory.load(
+      File.join(
+        Rails.root,
+        Rails.env.test? ? 'spec' : 'config',
+        Rails.configuration.x.domains_file
+      )
+    )
+  else
+    TiSqlegalize::DomainDirectory.new
+  end
+
 TiSqlegalize.schemas = \
   if Rails.configuration.x.schemas_file
-    -> do
-      begin
-        ActiveSupport::JSON.decode File.read(Rails.configuration.x.schemas_file)
-      rescue JSON::ParserError, Errno::ENOENT => e
-        raise "Could not load schemas: #{e}"
-      end
-    end
+    TiSqlegalize::SchemaDirectory.load(
+      File.join(
+        Rails.root,
+        Rails.env.test? ? 'spec' : 'config',
+        Rails.configuration.x.schemas_file
+      )
+    )
   else
-    -> { [] }
+    TiSqlegalize::SchemaDirectory.new
   end

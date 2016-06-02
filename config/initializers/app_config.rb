@@ -18,5 +18,6 @@ Rails.application.configure do
   Settings.load!
   config.x.root_path = Settings.app['root_path'] || '/'
   config.x.calcite_endpoint = Settings.app['calcite_endpoint']
+  config.x.domains_file = Settings.app['domains_file']
   config.x.schemas_file = Settings.app['schemas_file']
 end

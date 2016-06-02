@@ -1,1 +1,4 @@
 root_path: "/"
+calcite_endpoint: "tcp://127.0.0.1:5555"
+domains_file: domains.json
+schemas_file: schemas.json

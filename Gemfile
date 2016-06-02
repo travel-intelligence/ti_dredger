@@ -9,7 +9,7 @@ gem 'sqliterate'
 gem 'resque'
 gem 'god'
 gem 'impala'
-gem 'ti_sqlegalize', git: 'http://github.com/ebastien/ti_sqlegalize', tag: 'v0.0.1'
+gem 'ti_sqlegalize', git: 'http://github.com/ebastien/ti_sqlegalize', tag: 'v0.1.0'
 gem 'ti_rails_auth', git: 'http://github.com/ebastien/ti_rails_auth'
 gem 'ti_rails_debian', git: 'http://github.com/ebastien/ti_rails_debian'
 

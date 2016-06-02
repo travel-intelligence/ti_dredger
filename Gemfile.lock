@@ -16,8 +16,8 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_sqlegalize
-  revision: 1ddb0d461c5fd08c2c456403ea35b45722d98035
-  tag: v0.0.1
+  revision: e3b95724cc48b7cf0ae44495073fa6cfb467cad2
+  tag: v0.1.0
   specs:
     ti_sqlegalize (0.0.1)
       cztop
@@ -249,4 +249,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.3
+   1.12.5
