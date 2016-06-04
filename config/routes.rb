@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
 
+  root to: "errors#routing"
+
   scope Rails.configuration.x.root_path do
 
-    scope module: 'api/v1' do
-      get '/', to: 'entry#index', as: :api_v1
-      get '/profile', to: redirect('/profile.txt'), as: :api_v1_profile
+    namespace :api do
+      namespace :v1 do
+        get '/', to: 'entry#index', as: :entry
+        get '/profile', to: redirect('/profile.txt'), as: :profile
+      end
     end
 
-    mount TiSqlegalize::Engine, at: 'sql'
+    scope 'api' do
+      get 'v2', to: 'ti_sqlegalize/v2/entries#show', as: :api_v2_entry
+    end
 
+    mount TiSqlegalize::Engine, at: 'api'
   end
 
   match "*path", to: "errors#routing", via: :all

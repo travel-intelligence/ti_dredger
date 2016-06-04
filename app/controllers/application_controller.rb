@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
 
   include ActionController::MimeResponds
 
-  rescue_from Exception, with: :exception_handler
+  rescue_from Exception, with: :exception_handler if Rails.env.production?
 
   protected
 

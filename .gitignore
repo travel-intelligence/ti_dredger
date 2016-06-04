@@ -7,3 +7,5 @@
 /tmp
 /.ruby-version
 /.rbenv-version
+/config/domains.json
+/config/schemas.json

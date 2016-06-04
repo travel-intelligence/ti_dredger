@@ -2,7 +2,7 @@ class Api::V1::EntryController < ApplicationController
   def index
     rep = {
       api: {
-        href: api_v1_url,
+        href: api_v1_entry_url,
         links: {
           r_new_query: ti_sqlegalize.queries_url
         },
