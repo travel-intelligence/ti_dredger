@@ -16,10 +16,10 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_sqlegalize
-  revision: e3b95724cc48b7cf0ae44495073fa6cfb467cad2
-  tag: v0.1.0
+  revision: 652b2889f40d33256d7845a30770248f15d34da5
+  tag: v0.1.1
   specs:
-    ti_sqlegalize (0.1.0)
+    ti_sqlegalize (0.1.1)
       cztop
       rails (~> 4.2.0)
       rails-api (~> 0.3.1)
