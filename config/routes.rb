@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
     scope module: :api do
       scope module: :v1 do
-        get '/', to: 'entry#index', as: :api_v1_entry
-        get '/profile', to: redirect('/profile.txt'), as: :api_v1_profile
+        scope 'v1' do
+          get '/', to: 'entry#index', as: :api_v1_entry
+          get '/profile', to: redirect('/profile.txt'), as: :api_v1_profile
+        end
       end
     end
 
