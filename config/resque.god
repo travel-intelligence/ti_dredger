@@ -11,7 +11,7 @@ workers.times do |n|
     w.name     = "resque-#{n}"
     w.group    = 'resque'
     w.interval = 30.seconds
-    w.env      = { "QUEUE" => "*", "RAILS_ENV" => rails_env }
+    w.env      = { "QUEUE" => "*", "RAILS_ENV" => rails_env, "VERBOSE" => "1" }
     w.start    = "./bin/rake resque:work"
     w.log      = "#{rails_root}/log/resque-#{n}.log"
     w.keepalive
