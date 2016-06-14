@@ -6,7 +6,7 @@ module Impala
       "boolean" => "BOOLEAN",
       "tinyint" => "TINYINT",
       "smallint" => "SMALLINT",
-      "int" => "INTEGER",
+      "int" => "INT",
       "bigint" => "BIGINT",
       "decimal" => "DECIMAL",
       "float" => "FLOAT",

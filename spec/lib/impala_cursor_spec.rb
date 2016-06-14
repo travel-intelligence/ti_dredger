@@ -44,7 +44,7 @@ describe Impala::Cursor do
     cursor = db.execute 'select a, b from t'
     expect(cursor.schema).to eq([
         [ 'a', 'VARCHAR' ],
-        [ 'b', 'INTEGER' ]
+        [ 'b', 'INT' ]
       ])
   end
 end
