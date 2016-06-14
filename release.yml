@@ -7,3 +7,6 @@ description: Travel Intelligence SQL web services.
 dependencies:
 hooks:
 supervisor: systemd
+config_files:
+  - domains.json
+  - schemas.json
