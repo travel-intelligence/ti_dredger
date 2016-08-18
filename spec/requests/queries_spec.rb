@@ -9,7 +9,7 @@ RSpec.describe "Queries API", :type => :request do
       'X-Grants' => Base64.encode64({ grants: [{}] }.to_json) }
   end
 
-  describe "POST /api/v1/queries" do
+  describe "POST /v1/queries" do
 
     it "creates queries from JSON POST body" do
       rep = { queries: { sql: "select * from t" } }.to_json
