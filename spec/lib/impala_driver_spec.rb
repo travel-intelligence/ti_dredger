@@ -1,11 +1,12 @@
 require 'rails_helper'
 
-describe Impala::Cursor do
+describe ImpalaDriver do
 
   class MockField < Struct.new(:name, :type)
   end
 
   before(:each) do
+    @statements = []
     @connection = double("Impala connection")
     @handle = double("Impala handle")
     @service = double("Impala service")
@@ -32,7 +33,8 @@ describe Impala::Cursor do
     allow(@service).to receive(:close)
     allow(@service).to receive(:get_results_metadata).and_return(@metadata)
 
-    allow(@connection).to receive(:execute) do
+    allow(@connection).to receive(:execute) do |statement|
+      @statements << statement
       Impala::Cursor.new(@handle, @service)
     end
 
@@ -40,11 +42,20 @@ describe Impala::Cursor do
   end
 
   it "returns the schema of a query" do
-    db = Impala.connect('127.0.0.1', '21000')
+    db = ImpalaDriver::Database.connect('127.0.0.1', '21000')
     cursor = db.execute 'select a, b from t'
     expect(cursor.schema).to eq([
         [ 'a', 'VARCHAR' ],
         [ 'b', 'INT' ]
       ])
+  end
+
+  it "injects properties into the session" do
+    db = ImpalaDriver::Database.connect('127.0.0.1', '21000')
+    db.execute 'select a, b from t'
+    expect(@statements).to eq([
+      "SET NUM_SCANNER_THREADS=1",
+      "select a, b from t"
+    ])
   end
 end

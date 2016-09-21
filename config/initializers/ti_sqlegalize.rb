@@ -1,4 +1,4 @@
-require 'impala_cursor'
+require 'impala_driver'
 require 'ti_sqlegalize/zmq_socket'
 require 'ti_sqlegalize/calcite_validator'
 require 'ti_rails_auth/controller'
@@ -17,7 +17,7 @@ Rails.application.configure do
 
   unless Rails.env.test?
     config.ti_sqlegalize.database = -> do
-      Impala.connect(db_config['host'], db_config['port'])
+      ImpalaDriver::Database.connect(db_config['host'], db_config['port'])
     end
   end
 

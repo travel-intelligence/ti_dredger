@@ -1,7 +1,7 @@
-require 'impala'
-
-module Impala
-  class Cursor
+# Extensions to the Impala::Cursor class to support schema extraction and
+# standard types conversion
+module ImpalaExtensions
+  module Cursor
     TYPES_MAP = {
       "boolean" => "BOOLEAN",
       "tinyint" => "TINYINT",
