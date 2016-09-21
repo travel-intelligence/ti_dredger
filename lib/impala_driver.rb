@@ -11,12 +11,7 @@ module ImpalaDriver
     delegate :schema, :close, :open?, :each_slice, to: :cursor
 
     def initialize(connection, properties, statement)
-
-      properties.each do |name, value|
-        connection.execute("SET #{name}=#{value}")
-      end
-
-      @cursor = connection.execute(statement)
+      @cursor = connection.execute(statement, properties)
     end
 
     private

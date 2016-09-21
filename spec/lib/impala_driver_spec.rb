@@ -33,8 +33,8 @@ describe ImpalaDriver do
     allow(@service).to receive(:close)
     allow(@service).to receive(:get_results_metadata).and_return(@metadata)
 
-    allow(@connection).to receive(:execute) do |statement|
-      @statements << statement
+    allow(@connection).to receive(:execute) do |statement, options|
+      @statements << [statement, options]
       Impala::Cursor.new(@handle, @service)
     end
 
@@ -54,8 +54,7 @@ describe ImpalaDriver do
     db = ImpalaDriver::Database.connect('127.0.0.1', '21000')
     db.execute 'select a, b from t'
     expect(@statements).to eq([
-      "SET NUM_SCANNER_THREADS=1",
-      "select a, b from t"
+      ["select a, b from t", { "NUM_SCANNER_THREADS" => 1 }]
     ])
   end
 end
