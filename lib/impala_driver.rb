@@ -1,7 +1,7 @@
 require 'impala'
 require 'impala_extensions'
 
-Impala::Cursor.include ImpalaExtensions::Cursor
+Impala::Cursor.prepend ImpalaExtensions::Cursor
 
 # Wrapper around the Impala Gem to control statement execution
 module ImpalaDriver

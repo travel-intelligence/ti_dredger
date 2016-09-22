@@ -11,7 +11,7 @@ describe ImpalaDriver do
     @handle = double("Impala handle")
     @service = double("Impala service")
     @result = double("Impala result")
-    @data = []
+    @data = [ "some_text,42" ]
     @metadata = double("Impala metadata")
     @schema = double("Impala schema")
     @field = double("Impala field")
@@ -25,6 +25,7 @@ describe ImpalaDriver do
     allow(@schema).to receive(:fieldSchemas).and_return(@field_schemas)
 
     allow(@metadata).to receive(:schema).and_return(@schema)
+    allow(@metadata).to receive(:delim).and_return(',')
 
     allow(@result).to receive(:data).and_return(@data)
     allow(@result).to receive(:has_more).and_return(false)
@@ -56,5 +57,13 @@ describe ImpalaDriver do
     expect(@statements).to eq([
       ["select a, b from t", { "NUM_SCANNER_THREADS" => 1 }]
     ])
+  end
+
+  it "returns the query results as tuples" do
+    db = ImpalaDriver::Database.connect('127.0.0.1', '21000')
+    cursor = db.execute 'select a, b from t'
+    rows = []
+    cursor.each_slice(1) { |r| rows += r }
+    expect(rows).to eq([["some_text", 42]])
   end
 end
