@@ -47,7 +47,7 @@ describe ImpalaDriver do
     cursor = db.execute 'select a, b from t'
     expect(cursor.schema).to eq([
         [ 'a', 'VARCHAR' ],
-        [ 'b', 'INT' ]
+        [ 'b', 'INTEGER' ]
       ])
   end
 
