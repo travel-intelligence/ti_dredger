@@ -1,22 +1,54 @@
-TI Ledgers
+TI Dredger
 ==========
 
-# Configuration
+## Install the Ruby environment
 
-## Installation
-* Install the Ruby environment:
 ```bash
-$ bundle install
+bundle install
 ```
 
-## Tests
+## Install ZeroMQ dependencies
+
 ```bash
-$ export LD_LIBRARY_PATH=/opt/czmq-*/lib:/opt/libzmq-*/lib
-$ bundle exec rspec
+sudo apt-get install -y git-all build-essential libtool pkg-config autotools-dev autoconf automake cmake
+
+mkdir zeromq
+cd zeromq
+
+# Important to get latest master versions from Git repositories, and not packaged tarballs.
+
+git clone https://github.com/zeromq/libzmq.git
+cd libzmq
+./autogen.sh
+./configure
+make check
+sudo make install
+sudo ldconfig
+cd ..
+
+git clone https://github.com/zeromq/czmq.git
+cd czmq
+./autogen.sh && ./configure && make check
+sudo make install
+sudo ldconfig
+cd ..
+cd ..
 ```
 
-## Update the Ruby dependencies
+## Run ti_dredger tests
+
 ```bash
-$ bundle update
+# Do that if ZeroMQ libraries were installed in non standard directories
+export LD_LIBRARY_PATH=/opt/czmq-*/lib:/opt/libzmq-*/lib
+
+bundle exec rspec
 ```
 
+## Run tidredger locally
+
+```bash
+bundle exec puma
+```
+
+Entry point URL in local mode:
+[http://localhost:9292/v2/entry]
