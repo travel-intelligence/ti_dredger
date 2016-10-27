@@ -45,4 +45,14 @@ Rails.application.configure do
   require 'auto_dev_login'
   config.middleware.insert_before Rails::Rack::Logger, AutoDevLogin
 
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :debug
+
+  # Use Calcite to parse SQL
+  config.use_calcite = true
+
+  # Use Impala as a database
+  config.use_impala = false
+
 end
