@@ -8,7 +8,7 @@ module ImpalaDriver
 
   class Cursor
 
-    delegate :schema, :close, :open?, :each_slice, to: :cursor
+    delegate :schema, :close, :open?, :each_slice, :has_more?, to: :cursor
 
     def initialize(connection, properties, statement)
       @cursor = connection.execute(statement, properties)

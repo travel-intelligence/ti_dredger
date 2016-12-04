@@ -16,10 +16,10 @@ GIT
 
 GIT
   remote: http://github.com/ebastien/ti_sqlegalize
-  revision: 8efa12b801edc2614a983501a1ee6cef13be439d
-  tag: v0.1.3
+  revision: 3f18739db41f4702dc9c3c9b5cb058499c8976f7
+  tag: v0.1.4
   specs:
-    ti_sqlegalize (0.1.3)
+    ti_sqlegalize (0.1.4)
       cztop
       rails (~> 4.2.0)
       rails-api (~> 0.3.1)
@@ -74,15 +74,15 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     clamp (0.6.5)
     concurrent-ruby (1.0.2)
-    czmq-ffi-gen (0.9.2)
+    czmq-ffi-gen (0.9.4)
       ffi (~> 1.9.10)
     cztop (0.6.1)
       czmq-ffi-gen (~> 0.9.2)
     daemons (1.2.4)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    eventmachine (1.2.0.1)
-    fabrication (2.15.2)
+    eventmachine (1.2.1)
+    fabrication (2.16.0)
     ffi (1.9.14)
     fpm (1.3.3)
       arr-pm (~> 0.0.9)
@@ -112,17 +112,15 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
-    mock_redis (0.17.0)
+    minitest (5.10.1)
+    mock_redis (0.17.1)
     mono_logger (1.1.0)
     multi_json (1.12.1)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
-    pkg-config (1.1.7)
     polyglot (0.3.5)
-    puma (3.6.0)
-    rack (1.6.4)
+    puma (3.6.2)
+    rack (1.6.5)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -161,7 +159,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.17.0)
     rake (11.3.0)
-    redis (3.3.1)
+    redis (3.3.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     resque (1.26.0)
@@ -170,7 +168,7 @@ GEM
       redis-namespace (~> 1.3)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
-    rspec-core (3.5.3)
+    rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -191,7 +189,8 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
-    spring (1.7.2)
+    spring (2.0.0)
+      activesupport (>= 4.2)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -206,7 +205,7 @@ GEM
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
       rack (>= 1, < 3)
-    thor (0.19.1)
+    thor (0.19.4)
     thread_safe (0.3.5)
     thrift (0.9.3.0)
     tilt (2.0.5)
@@ -214,7 +213,7 @@ GEM
       polyglot (~> 0.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    unicorn (5.1.0)
+    unicorn (5.2.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     vegas (0.1.11)
@@ -226,9 +225,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cztop (= 0.6.1)
   fabrication
   god
-  impala
+  impala (= 0.4.3)
   jsonpath
   mock_redis
   puma
