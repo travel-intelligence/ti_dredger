@@ -30,6 +30,7 @@ sudo make install
 sudo ldconfig
 cd ..
 cd ..
+```
 
 ## Run ti_dredger tests
 
