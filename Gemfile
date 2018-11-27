@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.1'
 
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2'
 gem 'rails-api'
 gem 'puma'
 gem 'sqliterate'
@@ -26,6 +26,5 @@ group :development, :test do
   gem 'jsonpath'
   gem 'fabrication'
   gem 'mock_redis'
-  gem 'pry'
-  gem 'pry-byebug'
+  gem 'byebug'
 end
