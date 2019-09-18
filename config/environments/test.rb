@@ -43,6 +43,10 @@ Rails.application.configure do
   # Use Calcite to parse SQL
   config.use_calcite = false
 
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :debug
+
   # Use Impala as a database
   config.use_impala = false
 

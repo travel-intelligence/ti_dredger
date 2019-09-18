@@ -25,6 +25,7 @@ class User
   end
 
   def can_read_schema?(schema)
+    return true if @admin
     schema_controls = @controls.select do |label,_,_|
                         label == RELATIONAL_SCHEMA_CONTROL
                       end

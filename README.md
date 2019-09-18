@@ -10,7 +10,7 @@ bundle install
 ## Install ZeroMQ dependencies
 
 ```bash
-sudo apt-get install -y git-all build-essential libtool pkg-config autotools-dev autoconf automake cmake
+sudo apt install -y git-all build-essential libtool pkg-config autotools-dev autoconf automake cmake
 
 mkdir zeromq
 cd zeromq
@@ -61,7 +61,7 @@ QUEUE=query RAILS_ENV=development bundle exec rake resque:work
 
 ## To use the TI Calcite server locally instead of the dummy SQL parser
 
-Set use_calcite to true in config/development.rb and run the TI Calcite server locally by doing the following:
+Set use_calcite to true in config/environments/development.rb and run the TI Calcite server locally by doing the following:
 
 Install the JDK, Maven, SDKMan and Gradle:
 ```bash

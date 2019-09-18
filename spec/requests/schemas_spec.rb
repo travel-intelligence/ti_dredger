@@ -25,7 +25,7 @@ RSpec.describe "Schemas API", :type => :request do
 
       it "only fetches the index representation of the MARKET schema" do
         headers = { 'Accept' => 'application/json' }
-        get ti_sqlegalize.v2_schemas_path, '', auth_headers.merge(headers)
+        get ti_sqlegalize.v2_schemas_path, headers: auth_headers.merge(headers)
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
         expect(data.length).to eq(1)
@@ -40,7 +40,7 @@ RSpec.describe "Schemas API", :type => :request do
 
       it "only fetches the index representation of the HR schema" do
         headers = { 'Accept' => 'application/json' }
-        get ti_sqlegalize.v2_schemas_path, '', auth_headers.merge(headers)
+        get ti_sqlegalize.v2_schemas_path, headers: auth_headers.merge(headers)
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
         expect(data.length).to eq(1)
@@ -57,7 +57,7 @@ RSpec.describe "Schemas API", :type => :request do
       it "fetches the index representation of all schemas" do
         pending("Admin flag not supported by the auth module.")
         headers = { 'Accept' => 'application/json' }
-        get ti_sqlegalize.v2_schemas_path, '', auth_headers.merge(headers)
+        get ti_sqlegalize.v2_schemas_path, headers: auth_headers.merge(headers)
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
         expect(data.length).to eq(2)

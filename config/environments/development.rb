@@ -55,4 +55,7 @@ Rails.application.configure do
   # Use Impala as a database
   config.use_impala = false
 
+  # When an error occurs in development mode, render debugging information as
+  # a regular API response, not an HTML page.
+  config.debug_exception_response_format = :api
 end
