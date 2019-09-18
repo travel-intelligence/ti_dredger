@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2'
-
+gem 'rails', '~> 6.0'
 gem 'puma'
 gem 'sqliterate'
 gem 'resque'
