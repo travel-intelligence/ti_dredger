@@ -1,7 +1,7 @@
 require 'impala_driver'
 require 'ti_sqlegalize/zmq_socket'
 require 'ti_sqlegalize/calcite_validator'
-# require 'ti_rails_auth/controller'
+require 'devise_auth_controller'
 require 'active_support/json'
 
 Rails.application.configure do
@@ -13,8 +13,7 @@ Rails.application.configure do
     fail KeyError, "No Impala configuration found for #{db_label}"
   end
 
-  require 'auto_dev_login'
-  config.ti_sqlegalize.auth_mixin = 'AutoDevLogin::AuthController'
+  config.ti_sqlegalize.auth_mixin = 'DeviseAuthController'
 
   if config.use_impala
     Rails.logger.info "Use Impala database behind #{db_config['host']}:#{db_config['port']}"

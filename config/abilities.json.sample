@@ -1,0 +1,6 @@
+{
+  "abilities": {
+    "user1@mail.com": ["MARKET"],
+    "user2@mail.com": ["MARKET", "HR"]
+  }
+}

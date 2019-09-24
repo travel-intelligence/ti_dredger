@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         scope 'v1' do
           get '/', to: 'entry#index', as: :api_v1_entry
           get '/profile', to: redirect('/profile.txt'), as: :api_v1_profile
+          devise_for :users, controllers: { sessions: :sessions }
         end
       end
     end

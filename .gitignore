@@ -9,4 +9,6 @@
 /.rbenv-version
 /config/domains.json
 /config/schemas.json
+/config/abilities.json
 .byebug_history
+db/*.sqlite3

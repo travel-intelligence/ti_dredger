@@ -2,10 +2,28 @@
 require 'active_model'
 
 class User
+
   include ActiveModel::Model
+  # Required because some before_validations are defined in devise
+  include ActiveModel::Validations
+  # Required to define callbacks
+  extend ActiveModel::Callbacks
+  extend Devise::Models
+
+  # Required by Devise
+  define_model_callbacks :validation
 
   attr_accessor :email
   attr_accessor :admin
+
+  devise(
+    # :ldap_authenticatable
+    # :registerable,
+    # :recoverable,
+    # :rememberable,
+    # :trackable,
+    # :validatable
+  )
 
   validates_presence_of :email
 
@@ -26,12 +44,7 @@ class User
 
   def can_read_schema?(schema)
     return true if @admin
-    schema_controls = @controls.select do |label,_,_|
-                        label == RELATIONAL_SCHEMA_CONTROL
-                      end
-
-    schema_controls.any? do |_,sign,params|
-      sign && params['schemas'] && params['schemas'].include?(schema.id)
-    end
+    Ability.new(self).can? :read, schema.id
   end
+
 end

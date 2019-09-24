@@ -1,16 +1,18 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 6.0'
+gem 'sqlite3'
 gem 'puma'
 gem 'sqliterate'
+gem 'devise'
 gem 'resque'
 gem 'god'
 
+gem 'cancancan'
 gem 'impala'
 gem 'cztop'
 
-gem 'ti_sqlegalize', git: 'https://github.com/travel-intelligence/ti_sqlegalize'
-gem 'ti_rails_auth', git: 'https://github.com/travel-intelligence/ti_rails_auth'
+gem 'ti_sqlegalize', git: 'https://github.com/travel-intelligence/ti_sqlegalize' # '~> 1.0'
 gem 'ti_rails_debian', git: 'https://github.com/travel-intelligence/ti_rails_debian'
 
 group :heroku do

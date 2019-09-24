@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/travel-intelligence/ti_rails_auth
-  revision: 91de38c593f7a07022686c87d86427dc0e1a3830
-  specs:
-    ti_rails_auth (0.0.2)
-      rails
-      warden
-
-GIT
   remote: https://github.com/travel-intelligence/ti_rails_debian
   revision: 47072608689898b611ea566ca6a477cc145ccb48
   specs:
@@ -86,9 +78,11 @@ GEM
     arr-pm (0.0.10)
       cabin (> 0)
     backports (3.18.1)
+    bcrypt (3.1.15)
     builder (3.2.4)
     byebug (11.1.3)
     cabin (0.9.0)
+    cancancan (3.1.0)
     childprocess (4.0.0)
     clamp (0.6.5)
     concurrent-ruby (1.1.6)
@@ -97,6 +91,12 @@ GEM
       ffi (~> 1.11)
     cztop (0.14.1)
       czmq-ffi-gen (~> 0.16)
+    devise (4.7.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.4.4)
     erubi (1.9.0)
     fabrication (2.21.1)
@@ -144,6 +144,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     polyglot (0.3.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -191,6 +192,9 @@ GEM
     redis (4.2.1)
     redis-namespace (1.7.0)
       redis (>= 3.0.4)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     resque (2.0.0)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
@@ -228,6 +232,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     sqliterate (0.1.4)
       polyglot (~> 0.3)
       treetop (~> 1.5)
@@ -257,7 +262,9 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  cancancan
   cztop
+  devise
   fabrication
   god
   impala
@@ -269,8 +276,8 @@ DEPENDENCIES
   resque
   rspec-rails
   spring
+  sqlite3
   sqliterate
-  ti_rails_auth!
   ti_rails_debian!
   ti_sqlegalize!
   unicorn
