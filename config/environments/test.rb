@@ -50,4 +50,7 @@ Rails.application.configure do
   # Use Impala as a database
   config.use_impala = false
 
+  # Set the host
+  Rails.application.routes.default_url_options[:host] = 'http://test.host'
+
 end

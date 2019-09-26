@@ -5,6 +5,8 @@ gem 'sqlite3'
 gem 'puma'
 gem 'sqliterate'
 gem 'devise'
+gem 'devise_ldap_authenticatable'
+gem 'jsonapi-rails'
 gem 'resque'
 gem 'god'
 
@@ -27,4 +29,5 @@ group :development, :test do
   gem 'fabrication'
   gem 'mock_redis'
   gem 'byebug'
+  gem 'jsonapi-rspec', require: false
 end

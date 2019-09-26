@@ -5,15 +5,21 @@
 Devise.setup do |config|
   # ==> LDAP Configuration
   # config.ldap_logger = true
-  # config.ldap_create_user = false
-  # config.ldap_update_password = true
+  config.ldap_create_user = true
+  config.ldap_update_password = false
   # config.ldap_config = "#{Rails.root}/config/ldap.yml"
   # config.ldap_check_group_membership = false
   # config.ldap_check_group_membership_without_admin = false
   # config.ldap_check_attributes = false
   # config.ldap_check_attributes_presence = false
-  # config.ldap_use_admin_to_bind = false
+  config.ldap_use_admin_to_bind = true
   # config.ldap_ad_group_check = false
+  # Key used for authentication. This time, use the username of the User model.
+  config.authentication_keys = [:user_name]
+  # Does not distinguish case of key
+  config.case_insensitive_keys = [:user_name]
+  # Delete the blanks contained in the key
+  config.strip_whitespace_keys = [:user_name]
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -277,10 +283,11 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  # config.warden do |manager|
+  config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
-  # end
+    manager.default_strategies(scope: :user).unshift :api_token
+  end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine

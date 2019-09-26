@@ -52,4 +52,8 @@ Rails.application.configure do
   # When an error occurs in development mode, render debugging information as
   # a regular API response, not an HTML page.
   config.debug_exception_response_format = :api
+
+  # Set the host
+  Rails.application.routes.default_url_options[:host] = 'http://localhost:9292'
+
 end

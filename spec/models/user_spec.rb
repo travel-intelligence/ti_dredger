@@ -1,14 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+RSpec.describe User do
 
   let(:user) { Fabricate(:user, email: 'user_for_market@mail.com') }
-
-  it "accepts controls from the authentication module" do
-    expect do
-      user.controls = [["some_access_control", true, {}]]
-    end.not_to raise_error
-  end
 
   it "tells it can read a schema" do
     schema = TiSqlegalize::Schema.find 'MARKET'
