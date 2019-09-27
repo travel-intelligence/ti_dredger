@@ -30,7 +30,7 @@ Rails.application.configure do
     end
   end
 
-  if Rails.configuration.x.domains_file
+  if Rails.configuration.x.domains_file && !ARGV.include?('assets:precompile')
     Rails.logger.info "Use domains file #{Rails.configuration.x.domains_file}"
     domains = TiSqlegalize::DomainDirectory.load(
                 File.join(
@@ -41,7 +41,7 @@ Rails.application.configure do
     config.ti_sqlegalize.domains = -> { domains }
   end
 
-  if Rails.configuration.x.schemas_file
+  if Rails.configuration.x.schemas_file && !ARGV.include?('assets:precompile')
     Rails.logger.info "Use schemas file #{Rails.configuration.x.schemas_file}"
     schemas = TiSqlegalize::SchemaDirectory.load(
                 File.join(

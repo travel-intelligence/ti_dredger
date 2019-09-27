@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::TokensController do
 
+  authentication_specs_on :index
+
   context 'testing index action' do
 
     before :each do

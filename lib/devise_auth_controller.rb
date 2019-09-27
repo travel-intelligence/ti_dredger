@@ -15,6 +15,7 @@ module DeviseAuthController
   # Result::
   # * Boolean: Is the user authenticated?
   def authenticate
+    allow_params_authentication!
     authenticate_user!
     user_signed_in?
   end
