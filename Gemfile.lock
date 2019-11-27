@@ -101,6 +101,7 @@ GEM
       net-ldap (>= 0.16.0)
     diff-lcs (1.4.4)
     erubi (1.9.0)
+    execjs (2.7.0)
     fabrication (2.21.1)
     ffi (1.13.1)
     fpm (1.3.3)
@@ -259,6 +260,8 @@ GEM
       polyglot (~> 0.3)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     unicorn (5.6.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -297,6 +300,7 @@ DEPENDENCIES
   sqliterate
   ti_rails_debian!
   ti_sqlegalize!
+  uglifier
   unicorn
 
 BUNDLED WITH
