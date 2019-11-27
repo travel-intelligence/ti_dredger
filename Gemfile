@@ -24,6 +24,7 @@ group :heroku do
 end
 
 group :development, :test do
+  gem 'therubyracer'
   gem 'spring'
   gem 'rspec-rails'
   gem 'jsonpath'
