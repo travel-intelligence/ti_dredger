@@ -7,7 +7,7 @@ class Ability
   # Cache them.
   #
   # Result::
-  # * Hash<String, Array<String> >: The list of market IDs per user email
+  # * Hash<String, Array<String> >: The list of market IDs per user name
   def self.abilities
     @abilities = JSON.parse(File.read("#{Rails.root}/#{Rails.env.test? ? 'spec' : 'config'}/#{Rails.configuration.x.abilities_file}"))['abilities'] unless @abilities
     @abilities
@@ -42,7 +42,7 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     user ||= User.new
-    (Ability.abilities[user.email] || []).each do |allowed_market_id|
+    (Ability.abilities[user.user_name] || []).each do |allowed_market_id|
       can :read, allowed_market_id
     end
   end

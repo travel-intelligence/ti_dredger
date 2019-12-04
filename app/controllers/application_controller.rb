@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
     render jsonapi_errors: [{ detail: 'Not found' }], status: :not_found
   end
   rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
-    render :text => exception, :status => 500
+    render text: exception, status: 500
   end
 
   include ActionController::MimeResponds

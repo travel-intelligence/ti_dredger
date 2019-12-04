@@ -53,4 +53,7 @@ Rails.application.configure do
   # Set the host
   Rails.application.routes.default_url_options[:host] = 'http://test.host'
 
+  # Set the autologin feature. NEVER USE THAT IN PRODUCTION!
+  config.allow_autologin = false
+
 end

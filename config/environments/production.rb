@@ -83,4 +83,7 @@ Rails.application.configure do
   # Use Impala as a database
   config.use_impala = true
 
+  # Set the autologin feature. NEVER USE THAT IN PRODUCTION!
+  config.allow_autologin = false
+
 end

@@ -1,6 +1,6 @@
 class Api::V1::ApplicationController < ::ApplicationController
 
-  # Mapping between our model classes and their corresponding seralizers
+  # Mapping between our model classes and their corresponding serializers
   #
   # Result::
   # * Hash<Symbol, Class>: List of serializer classes, per model class names

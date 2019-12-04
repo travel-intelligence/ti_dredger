@@ -1,3 +1,4 @@
+# Warden strategy authenticating a user based on the Token given in the request
 class ApiTokenStrategy < Warden::Strategies::Base
 
   # Get the API token from a request

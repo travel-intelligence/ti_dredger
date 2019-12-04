@@ -7,7 +7,7 @@ RSpec.describe 'Schemas API' do
     context 'with a market user' do
 
       it 'only fetches the index representation of the MARKET schema' do
-        sign_in Fabricate(:user, email: 'user_for_market@mail.com')
+        sign_in Fabricate(:user, user_name: 'user_for_market')
         get ti_sqlegalize.v2_schemas_path, headers: { 'Accept' => 'application/json' }
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
@@ -20,7 +20,7 @@ RSpec.describe 'Schemas API' do
     context 'with a hr user' do
 
       it 'only fetches the index representation of the HR schema' do
-        sign_in Fabricate(:user, email: 'user_for_hr@mail.com')
+        sign_in Fabricate(:user, user_name: 'user_for_hr')
         get ti_sqlegalize.v2_schemas_path, headers: { 'Accept' => 'application/json' }
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
