@@ -20,6 +20,14 @@ Rails.application.configure do
     config.ti_sqlegalize.database = -> do
       ImpalaDriver::Database.connect(db_config['host'], db_config['port'])
     end
+  elsif config.mock_statements
+    config.ti_sqlegalize.database = proc do
+      dummy_database = TiSqlegalize::DummyDatabase.new
+      config.mock_statements.each do |statement, mocked_data|
+        dummy_database.mock_data_for(statement, mocked_data)
+      end
+      dummy_database
+    end
   end
 
   if config.use_calcite && Rails.configuration.x.calcite_endpoint

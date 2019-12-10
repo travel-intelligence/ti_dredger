@@ -288,10 +288,12 @@ Devise.setup do |config|
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
     manager.default_strategies(scope: :user).unshift :api_token
     if Rails.application.config.allow_autologin
-      puts 'Activating AutoLogin.'
+      puts "Activating AutoLogin for users #{Rails.application.config.allow_autologin.join(', ')}"
       puts '!!! NEVER ACTIVATE AUTOLOGIN IN PRODUCTION !!!'
       manager.default_strategies(scope: :user).unshift :auto_login
-      ::AutoLoginStrategy.authorized_users << User.find_or_create_by(user_name: 'dev_user').user_name
+      ::AutoLoginStrategy.authorized_users.concat(
+        Rails.application.config.allow_autologin.map { |user_name| User.find_or_create_by(user_name: user_name).user_name }
+      )
     end
   end
 
