@@ -9,6 +9,6 @@ RSpec.describe Api::V1::EntryController do
     expect(response.status).to eq(200)
     expect(first_json_at '$.api.version').to eq(1)
     expect(first_json_at '$.api.href').to eq(api_v1_entry_url)
-    expect(first_json_at '$.api.links.r_new_query').to eq(queries_url(host: 'test.host'))
+    expect(first_json_at '$.api.links.rel_json').to eq(api_v2_entry_url(host: 'test.host'))
   end
 end
