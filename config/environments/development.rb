@@ -53,9 +53,6 @@ Rails.application.configure do
   # a regular API response, not an HTML page.
   config.debug_exception_response_format = :api
 
-  # Set the host
-  Rails.application.routes.default_url_options[:host] = 'http://localhost:9292'
-
   # List of users that can be auto-logged, or false for no auto-login.
   # NEVER USE THAT IN PRODUCTION!
   config.allow_autologin = ['dev_user']

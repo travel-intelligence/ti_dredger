@@ -50,9 +50,6 @@ Rails.application.configure do
   # Use Impala as a database
   config.use_impala = false
 
-  # Set the host
-  Rails.application.routes.default_url_options[:host] = 'http://test.host'
-
   # List of users that can be auto-logged, or false for no auto-login.
   # NEVER USE THAT IN PRODUCTION!
   config.allow_autologin = false

@@ -52,3 +52,6 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
 end
+
+# Set the URL host to a dummy test one
+Rails.application.routes.default_url_options[:host] = 'http://test.host'

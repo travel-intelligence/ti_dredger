@@ -21,4 +21,7 @@ Rails.application.configure do
   config.x.domains_file = Settings.app['domains_file']
   config.x.schemas_file = Settings.app['schemas_file']
   config.x.abilities_file = Settings.app['abilities_file']
+  config.filter_parameters << :password
+  Rails.application.routes.default_url_options[:host] = Settings.app['host']
+  config.action_controller.default_url_options = { protocol: Settings.app['protocol'] }
 end
