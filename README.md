@@ -176,7 +176,7 @@ curl http://localhost:9292/v1
    "api" : {
       "href" : "http://localhost:9292/v1",
       "links" : {
-         "r_new_query" : "http://localhost:9292/v1/queries",
+         "rel_json" : "http://localhost:9292/v2",
          "tokens" : "http://localhost:9292/v1/tokens"
       },
       "version" : 1
@@ -201,7 +201,7 @@ curl -H "Content-Type: application/json" http://localhost:9292/v1
    "api" : {
       "href" : "http://localhost:9292/v1",
       "links" : {
-         "r_new_query" : "http://localhost:9292/v1/queries",
+         "rel_json" : "http://localhost:9292/v2",
          "tokens" : "http://localhost:9292/v1/tokens"
       },
       "version" : 1
@@ -279,7 +279,7 @@ Here is the model of resources with their relations and attributes, published by
 │   │   expires_at
 │   │   token
 │
-└── <a href="#resource_reljson">relational json</a>
+└── <a href="#resource_rel_json">relational json</a>
 
 </code></pre>
 
@@ -538,7 +538,7 @@ curl -X DELETE http://localhost:9292/v1/tokens/33
 #### <a name="resource_rel_json"></a>Relational JSON
 
 This resource is the entry point of the relational JSON mapped on the schemas and on which queries can be made.
-Please refer to the [`ti_sqlegalize` API entry point](https://github.com/travel-intelligence/ti_sqlegalize) to get all details about this JSON:API.
+Please refer to the [`ti_sqlegalize` API entry point](https://github.com/travel-intelligence/ti_sqlegalize/blob/master/README.md) to get all details about this JSON:API.
 
 ### Examples
 
