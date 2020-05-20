@@ -43,7 +43,11 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     user ||= User.new
     (Ability.abilities[user.user_name] || []).each do |allowed_market_id|
-      can :read, allowed_market_id
+      if allowed_market_id == '*'
+        can :read, :all
+      else
+        can :read, allowed_market_id
+      end
     end
   end
 
