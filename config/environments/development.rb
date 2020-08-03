@@ -38,4 +38,24 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Automatically set HTTP headers to authenticate dev_user using dev_account.
+  # This will always automatically set this user as logged in.
+  # DO NOT USE THIS IN PRODUCTION.
+  require 'auto_dev_login'
+  config.middleware.insert_before Rails::Rack::Logger, AutoDevLogin
+
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :debug
+
+  # Use Calcite to parse SQL
+  config.use_calcite = true
+
+  # Use Impala as a database
+  config.use_impala = false
+
+  # When an error occurs in development mode, render debugging information as
+  # a regular API response, not an HTML page.
+  config.debug_exception_response_format = :api
 end

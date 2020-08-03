@@ -9,3 +9,4 @@
 /.rbenv-version
 /config/domains.json
 /config/schemas.json
+.byebug_history

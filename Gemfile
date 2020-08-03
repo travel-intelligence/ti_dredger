@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.7.1'
-
-gem 'rails' #, '4.2.0'
-gem 'rails-api'
+gem 'rails', '~> 6.0'
 gem 'puma'
 gem 'sqliterate'
 gem 'resque'
 gem 'god'
-gem 'impala' #, '0.4.3'
-gem 'cztop' #, '0.6.1'
-gem 'ti_sqlegalize', git: 'https://github.com/travel-intelligence/ti_sqlegalize' #, tag: 'v0.1.4'
+
+gem 'impala'
+gem 'cztop'
+
+gem 'ti_sqlegalize', git: 'https://github.com/travel-intelligence/ti_sqlegalize'
 gem 'ti_rails_auth', git: 'https://github.com/travel-intelligence/ti_rails_auth'
 gem 'ti_rails_debian', git: 'https://github.com/travel-intelligence/ti_rails_debian'
 
@@ -25,4 +24,5 @@ group :development, :test do
   gem 'jsonpath'
   gem 'fabrication'
   gem 'mock_redis'
+  gem 'byebug'
 end
