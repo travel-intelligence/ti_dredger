@@ -14,7 +14,7 @@ gem 'cancancan'
 gem 'impala'
 gem 'cztop'
 
-gem 'ti_sqlegalize', git: 'https://github.com/travel-intelligence/ti_sqlegalize' # '~> 1.0'
+gem 'ti_sqlegalize', git: 'https://github.com/travel-intelligence/ti_sqlegalize'
 gem 'ti_rails_debian', git: 'https://github.com/travel-intelligence/ti_rails_debian'
 
 group :heroku do

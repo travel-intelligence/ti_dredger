@@ -8,12 +8,11 @@ GIT
 
 GIT
   remote: https://github.com/travel-intelligence/ti_sqlegalize
-  revision: c7e66ef59ab3feac47c643440129ee13f8fdfc96
+  revision: 5840d9f8f9bb90bdbc5c38bca820a6cdd03ed8c0
   specs:
     ti_sqlegalize (0.1.5)
       cztop
-      rails
-      rails-api
+      rails (~> 6.0)
       resque
       sqliterate
 
@@ -186,9 +185,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 6.0.3.2)
       sprockets-rails (>= 2.0.0)
-    rails-api (0.4.1)
-      actionpack (>= 3.2.11)
-      railties (>= 3.2.11)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
