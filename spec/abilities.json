@@ -1,0 +1,6 @@
+{
+  "abilities": {
+    "user_for_market@mail.com": ["MARKET"],
+    "user_for_hr@mail.com": ["HR"]
+  }
+}

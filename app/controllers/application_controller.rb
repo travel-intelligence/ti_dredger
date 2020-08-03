@@ -1,4 +1,10 @@
 class ApplicationController < ActionController::API
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    render jsonapi_errors: [{ detail: 'Not found' }], status: :not_found
+  end
+  rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
+    render :text => exception, :status => 500
+  end
 
   include ActionController::MimeResponds
 
@@ -30,7 +36,7 @@ class ApplicationController < ActionController::API
     respond_to do |format|
       format.json { render options }
       format.jsonapi { render options }
-      format.all { render options.merge(content_type: Mime[:json]) }
+      format.all { render options.merge(media_type: Mime[:json]) }
     end
   end
 end

@@ -1,8 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
 # require 'rails/all'
-require "action_controller/railtie"
-require "sprockets/railtie"
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'sprockets/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -27,5 +28,12 @@ module TiDredger
 
     # Tell Rails this is an API app since rails-api was merged into Rails
     config.api_only = true
+
+    # Add strategies as part of the autoload paths
+    config.autoload_paths += Dir["#{config.root}/app/strategies/"]
+
+    # Don't use content_type anymore
+    config.action_dispatch.return_only_media_type_on_content_type = false
+
   end
 end

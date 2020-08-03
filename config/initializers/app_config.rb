@@ -20,4 +20,5 @@ Rails.application.configure do
   config.x.calcite_endpoint = Settings.app['calcite_endpoint']
   config.x.domains_file = Settings.app['domains_file']
   config.x.schemas_file = Settings.app['schemas_file']
+  config.x.abilities_file = Settings.app['abilities_file']
 end

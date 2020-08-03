@@ -9,4 +9,9 @@
 /.rbenv-version
 /config/domains.json
 /config/schemas.json
+/config/abilities.json
 .byebug_history
+db/*.sqlite3
+
+# Don't commit the master.key
+/config/master.key

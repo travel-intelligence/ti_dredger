@@ -1,31 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "Schemas API", :type => :request do
+RSpec.describe 'Schemas API' do
 
-  let(:user) { Fabricate(:user) }
+  describe 'GET /v2/schemas' do
 
-  let(:admin) { user.admin }
+    context 'with a market user' do
 
-  let(:auth_headers) do
-    { 'From' => user.email,
-      'X-Grants' => Base64.encode64({ grants: [
-          { user: user.email,
-            admin: admin,
-            controls: [
-              [ User::RELATIONAL_SCHEMA_CONTROL, true, { schemas: schemas } ]
-            ] }
-        ] }.to_json) }
-  end
-
-  describe "GET /v2/schemas" do
-
-    context "with a market user" do
-
-      let(:schemas) { ['MARKET'] }
-
-      it "only fetches the index representation of the MARKET schema" do
-        headers = { 'Accept' => 'application/json' }
-        get ti_sqlegalize.v2_schemas_path, headers: auth_headers.merge(headers)
+      it 'only fetches the index representation of the MARKET schema' do
+        sign_in Fabricate(:user, email: 'user_for_market@mail.com')
+        get ti_sqlegalize.v2_schemas_path, headers: { 'Accept' => 'application/json' }
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
         expect(data.length).to eq(1)
@@ -34,13 +17,11 @@ RSpec.describe "Schemas API", :type => :request do
       end
     end
 
-    context "with a hr user" do
+    context 'with a hr user' do
 
-      let(:schemas) { ['HR'] }
-
-      it "only fetches the index representation of the HR schema" do
-        headers = { 'Accept' => 'application/json' }
-        get ti_sqlegalize.v2_schemas_path, headers: auth_headers.merge(headers)
+      it 'only fetches the index representation of the HR schema' do
+        sign_in Fabricate(:user, email: 'user_for_hr@mail.com')
+        get ti_sqlegalize.v2_schemas_path, headers: { 'Accept' => 'application/json' }
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
         expect(data.length).to eq(1)
@@ -49,15 +30,11 @@ RSpec.describe "Schemas API", :type => :request do
       end
     end
 
-    context "with an admin user" do
+    context 'with an admin user' do
 
-      let(:schemas) { [] }
-      let(:admin) { true }
-
-      it "fetches the index representation of all schemas" do
-        pending("Admin flag not supported by the auth module.")
-        headers = { 'Accept' => 'application/json' }
-        get ti_sqlegalize.v2_schemas_path, headers: auth_headers.merge(headers)
+      it 'fetches the index representation of all schemas' do
+        sign_in Fabricate(:user, admin: true)
+        get ti_sqlegalize.v2_schemas_path, headers: { 'Accept' => 'application/json' }
         expect(response).to have_http_status(200)
         data = first_json_at '$.data'
         expect(data.length).to eq(2)

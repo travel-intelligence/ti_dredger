@@ -1,21 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe "Queries API", :type => :request do
+RSpec.describe 'Queries API' do
 
-  let!(:user) { Fabricate(:user) }
+  describe 'POST /v1/queries' do
 
-  let!(:auth_headers) do
-    { 'From' => user.email,
-      'X-Grants' => Base64.encode64({ grants: [{}] }.to_json) }
-  end
-
-  describe "POST /v1/queries" do
-
-    it "creates queries from JSON POST body" do
-      rep = { queries: { sql: "select * from t" } }.to_json
-      headers = { 'Content-Type' => 'application/json' }
-      post ti_sqlegalize.queries_path, params: rep, headers: auth_headers.merge(headers)
+    it 'creates queries from JSON POST body' do
+      sign_in Fabricate(:user)
+      post ti_sqlegalize.queries_path,
+        params: { queries: { sql: 'select * from t' } }.to_json,
+        headers: {
+          'Content-Type' => 'application/json',
+          'Accept' => 'application/json'
+        }
       expect(response).to have_http_status(201)
     end
+
   end
+
 end

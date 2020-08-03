@@ -1,37 +1,26 @@
 # encoding: utf-8
-require 'active_model'
+class User < ActiveRecord::Base
 
-class User
-  include ActiveModel::Model
+  has_many :tokens
 
   attr_accessor :email
   attr_accessor :admin
 
+  devise(
+    :ldap_authenticatable,
+    :trackable
+  )
+
   validates_presence_of :email
-
-  RELATIONAL_SCHEMA_CONTROL = 'relational_schema'
-
-  def self.find_by_email(email)
-    new(email: email)
-  end
-
-  def initialize(attributes={})
-    super
-    @controls ||= []
-  end
-
-  def controls=(ctrls)
-    @controls = ctrls || []
-  end
 
   def can_read_schema?(schema)
     return true if @admin
-    schema_controls = @controls.select do |label,_,_|
-                        label == RELATIONAL_SCHEMA_CONTROL
-                      end
-
-    schema_controls.any? do |_,sign,params|
-      sign && params['schemas'] && params['schemas'].include?(schema.id)
-    end
+    Ability.new(self).can? :read, schema.id
   end
+
+  # Callback called by devise_ldap_authenticable before saving a user.
+  def ldap_before_save
+    self.email = Devise::LDAP::Adapter.get_ldap_param(self.user_name, 'mail').first
+  end
+
 end

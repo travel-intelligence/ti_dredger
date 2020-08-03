@@ -7,5 +7,5 @@ test:
   workers: 1
 
 production:
-  redis: localhost:6379
+  redis: 127.0.0.1:6379
   workers: 5
