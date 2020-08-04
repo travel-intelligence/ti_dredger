@@ -1,6 +1,7 @@
 {
   "abilities": {
     "user_for_market": ["MARKET"],
-    "user_for_hr": ["HR"]
+    "user_for_hr": ["HR"],
+    "user_read_all": ["*"]
   }
 }
