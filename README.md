@@ -707,3 +707,18 @@ Query status: finished
 Heading: ["BOARD_CITY"]
 3 rows: [["NCE"], ["CDG"], ["MAD"]]
 ```
+
+## Additional tools
+
+### impala:dump
+
+In order to ease the generation of the `schemas.json` file, a small tool can dump the current databases and tables of an Impala connection into JSON.
+Once dependencies are installed (see above, same way it is done for the Rails backend), you can invoke the following Rake task:
+
+```bash
+bundle exec rake impala:dump[my_host.my_domain.com,21000,'my_schema']
+```
+
+This will dump all tables of all the databases having the pattern `my_schema` from the Impala connection `my_host.my_domain.com` on port `21000` in the JSON format used by `schemas.json`.
+
+You can check the available options of the tool using `bundle exec rake -T`.
