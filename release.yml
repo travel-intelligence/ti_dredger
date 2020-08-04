@@ -8,5 +8,6 @@ dependencies:
 hooks:
 supervisor: systemd
 config_files:
+  - abilities.json
   - domains.json
   - schemas.json

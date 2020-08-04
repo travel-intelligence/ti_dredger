@@ -2,7 +2,8 @@
   "schemas": [
     { "name": "MARKET", "description": "Market schema", "tables": [
       { "name": "BOOKINGS_OND", "columns": [
-        { "name": "BOARD_CITY", "domain": "IATA_CITY" }
+        { "name": "BOARD_CITY", "domain": "IATA_CITY" },
+        { "name": "PAX", "domain": "INTEGER" }
       ]}
     ]},
     { "name": "HR", "description": "HR schema", "tables": [

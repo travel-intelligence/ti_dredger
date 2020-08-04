@@ -53,7 +53,21 @@ Rails.application.configure do
   # a regular API response, not an HTML page.
   config.debug_exception_response_format = :api
 
-  # Set the host
-  Rails.application.routes.default_url_options[:host] = 'http://localhost:9292'
+  # List of users that can be auto-logged, or false for no auto-login.
+  # NEVER USE THAT IN PRODUCTION!
+  config.allow_autologin = ['dev_user']
+
+  # Set of database queries to be mocked by the TiSqlegalize DummyDatabase, or false to not mock anything.
+  # Only used if use_impala is false.
+  config.mock_statements = {
+    "SELECT `BOARD_CITY`\nFROM `MARKET`.`BOOKINGS_OND`" => {
+      schema: [['BOARD_CITY', 'IATA_CITY']],
+      data: [
+        ['NCE'],
+        ['CDG'],
+        ['MAD']
+      ]
+    }
+  }
 
 end

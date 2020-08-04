@@ -1,6 +1,6 @@
 {
   "abilities": {
-    "user1@mail.com": ["MARKET"],
-    "user2@mail.com": ["MARKET", "HR"]
+    "user1": ["MARKET"],
+    "user2": ["MARKET", "HR"]
   }
 }

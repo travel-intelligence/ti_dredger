@@ -1,3 +1,7 @@
 root_path: "/"
 calcite_endpoint: "tcp://127.0.0.1:5555"
-schemas_file: /tmp/schemas.json
+host: http://localhost:9292
+protocol: http
+domains_file: domains.json
+schemas_file: schemas.json
+abilities_file: abilities.json

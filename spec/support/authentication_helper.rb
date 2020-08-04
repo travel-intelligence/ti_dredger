@@ -39,7 +39,7 @@ module AuthenticationHelper
         expect(response.status).to eq(401)
       end
 
-      it 'allows a user identified with LDAP name and pasword' do
+      it 'allows a user identified with LDAP name and password' do
         Devise::Strategies::LdapAuthenticatable.allowed_users = ['test_user']
         get action, format: :jsonapi, params: { user: { user_name: 'test_user', password: 'test_password' } }
         expect(response.status).to eq(200)

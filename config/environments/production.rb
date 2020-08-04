@@ -83,4 +83,12 @@ Rails.application.configure do
   # Use Impala as a database
   config.use_impala = true
 
+  # List of users that can be auto-logged, or false for no auto-login.
+  # NEVER USE THAT IN PRODUCTION!
+  config.allow_autologin = false
+
+  # Set of database queries to be mocked by the TiSqlegalize DummyDatabase, or false to not mock anything.
+  # Only used if use_impala is false.
+  config.mock_statements = false
+
 end
