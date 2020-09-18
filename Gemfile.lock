@@ -129,7 +129,7 @@ GEM
       thrift (~> 0.9)
     insist (1.0.0)
     io-like (0.3.1)
-    json (1.8.6)
+    json (2.3.0)
     jsonapi-deserializable (0.2.0)
     jsonapi-parser (0.1.1)
     jsonapi-rails (0.4.0)
